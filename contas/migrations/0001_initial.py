@@ -14,15 +14,22 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Valores',
+            name='ContaPagar',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('valor', models.FloatField()),
+                ('titulo', models.CharField(max_length=50)),
                 ('descricao', models.TextField()),
-                ('data', models.DateField()),
-                ('tipo', models.CharField(choices=[('E', 'Entrada'), ('S', 'Saída')], max_length=1)),
+                ('valor', models.FloatField()),
+                ('dia_pagamento', models.IntegerField()),
                 ('categoria', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='perfil.categoria')),
-                ('conta', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='perfil.conta')),
+            ],
+        ),
+        migrations.CreateModel(
+            name='ContaPaga',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('data_pagamento', models.DateField()),
+                ('conta', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='contas.contapagar')),
             ],
         ),
     ]
