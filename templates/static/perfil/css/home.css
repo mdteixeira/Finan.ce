@@ -1,39 +1,47 @@
-.card {
+.card{
+
     width: 100%;
     background-color: var(--main-color);
     padding: 20px;
+
 }
 
-.saldo {
+.saldo{
     border-left: 2px solid var(--contrast-color);
     padding-left: 10px;
 }
 
-.fonte-destaque {
+.fonte-destaque{
+
     font-weight: bold;
     font-size: 25px;
+
 }
 
-.font-light {
+.font-light{
+
     font-weight: 200;
+
 }
 
-.hr-borda {
+.hr-borda{
     color: var(--dark-color);
 }
 
-.lista-conta {
+.lista-contas-main, .lista-categorias-main{
     background-color: var(--dark-color);
     padding: 8px;
     border-radius: 10px;
+
 }
-.total-conta {
-    color: #b9f1d6;
+.total-conta, .categoria_valor_planejamento{
+    color: #B9F1D6;
     font-weight: 200;
     float: right;
 }
 
-.botao-principal {
+.botao-principal{
+
     text-decoration: none;
     color: black;
     font-weight: bold;
@@ -44,23 +52,25 @@
     text-align: center;
     border-radius: 15px;
     border: none;
+
 }
 
-.despesa {
+.despesa{
     border-right: 2px solid var(--differential-color);
     text-align: right;
     padding-right: 10px;
 }
 
-.negativo {
+.negativo{
     color: var(--differential-color);
 }
 
-.positivo {
+.positivo{
     color: var(--contrast-color);
 }
 
-.icone-setas {
+
+.icone-setas{
     width: 50%;
     display: inline;
 }

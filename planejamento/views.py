@@ -5,20 +5,27 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 
 def definir_planejamento(request):
-    categorias = Categoria.objects.all()
-    return render(request, 'definir_planejamento.html', {'categorias': categorias})
-
+    if request.method == "GET":
+        categorias = Categoria.objects.all()
+        return render(request, 'definir_planejamento.html', {'categorias': categorias})
 
 @csrf_exempt
 def update_valor_categoria(request, id):
-    novo_valor = json.load(request)['novo_valor']
-    categoria = Categoria.objects.get(id=id)
-    categoria.valor_planejamento = novo_valor
-    categoria.save()
+    if request.method == "POST":
+        novo_valor = json.load(request)['novo_valor']
+        if ',' in novo_valor:
+            novo_valor = novo_valor.replace(',', 'temp').replace('.', ',').replace('temp', '.')
+        categoria = Categoria.objects.get(id=id)
+        categoria.valor_planejamento = novo_valor
 
-    return JsonResponse({'status': 'Sucesso'})
+        #TODO validate this request
 
+        categoria.save()
 
+        return JsonResponse({'status': 'Success'})
+    
 def ver_planejamento(request):
-    categorias = Categoria.objects.all()
-    return render(request, 'ver_planejamento.html', {'categorias': categorias})
+    if request.method == "GET":
+        categorias = Categoria.objects.all()
+        #TODO 06 fix if values 0 
+        return render(request, 'ver_planejamento.html', {'categorias': categorias})

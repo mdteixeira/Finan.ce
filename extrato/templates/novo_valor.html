@@ -3,7 +3,6 @@
 {% block 'head' %}
 
     <link href="{% static 'perfil/css/home.css' %}" rel="stylesheet">
-    <link href="{% static 'perfil/css/gerenciar.css' %}" rel="stylesheet">
 
 {% endblock %}
 
@@ -31,9 +30,9 @@
                         <div class="col-md">
                             <label>Categoria</label>
                             <select name="categoria" class="form-select">
-                                {%for categoria in categorias %}
-                                <option value="{{categoria.id}}">{{categoria}}</option>
-                                {%endfor%}
+                                {% for categoria in categorias %}
+                                    <option value="{{categoria.id}}">{{categoria}}</option>
+                                {% endfor %}
                             </select>
                         </div>
                     </div>
@@ -51,8 +50,8 @@
                             <label>Conta</label>
                             <select name="conta" class="form-select">
                                 {% for conta in contas %}
-                                <option value="{{conta.id}}">{{conta}}</option>
-                                {%endfor%}
+                                    <option value="{{conta.id}}">{{conta}}</option>
+                                {% endfor %}
                             </select>
                         </div>
                     </div>
